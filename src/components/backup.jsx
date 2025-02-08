@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { 
   ChevronDown, 
   ChevronUp,
-  Code2,
+  Code,
   Database,
   Globe,
   Zap,
   Cog,
-  CheckCircle,
-  ExternalLink
+  CheckCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -26,6 +25,7 @@ const ModuleCard = ({ title, topics, completion, icon: Icon, gradient }) => {
         shadow-lg hover:shadow-xl transition-shadow
         border-l-8 ${gradient.border}
       `}>
+        {/* Декоративный фоновый элемент */}
         <div className={`
           absolute top-0 right-0 w-32 h-32 opacity-10
           transform translate-x-16 -translate-y-16
@@ -67,56 +67,21 @@ const ModuleCard = ({ title, topics, completion, icon: Icon, gradient }) => {
               className="overflow-hidden relative z-10"
             >
               <ul className="mt-6 space-y-3">
-  {topics.map((topic, index) => (
-    <motion.li
-      key={index}
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: index * 0.1 }}
-      className="mb-4 last:mb-0"
-    >
-      <div className="flex flex-col text-gray-700 hover:text-gray-900 mb-2">
-        <div className="flex items-center">
-          <span className={`w-2 h-2 rounded-full ${gradient.bg} mr-3`}/>
-          <span className="font-medium">{topic.name}</span>
-        </div>
-        {topic.description && (
-          <p className="text-sm text-gray-500 mt-1 ml-5">
-            {topic.description}
-          </p>
-        )}
-      </div>
-      <div className="ml-5 space-y-2">
-        {topic.resources.map((resource, rIndex) => (
-          <motion.a
-            key={rIndex}
-            href={resource.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: (index * 0.1) + (rIndex * 0.05) }}
-            className={`
-              flex items-center text-sm hover:text-red-600 
-              transition-colors duration-200 pl-4
-            `}
-          >
-            <ExternalLink className="w-4 h-4 mr-2" />
-  {resource.title.split('*').map((part, i, arr) => 
-    i === arr.length - 1 ? (
-      <span key={i}>{part}</span>
-    ) : (
-      <span key={i}>
-        {part}<span className="text-red-500">*</span>
-      </span>
-    )
-  )}
-          </motion.a>
-        ))}
-      </div>
-    </motion.li>
-  ))}
-</ul>
+                {topics.map((topic, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center text-gray-700 hover:text-gray-900"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${gradient.bg} mr-3`}/>
+                    <span className="hover:translate-x-1 transition-transform">
+                      {topic}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
 
               {completion && (
                 <motion.div
@@ -136,7 +101,7 @@ const ModuleCard = ({ title, topics, completion, icon: Icon, gradient }) => {
                         key={index}
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: (index) * 0.1 }}
+                        transition={{ delay: (topics.length + index) * 0.1 }}
                         className="flex items-center text-gray-700 hover:text-gray-900"
                       >
                         <span className={`w-2 h-2 rounded-full ${gradient.bg} mr-3`}/>
@@ -160,7 +125,7 @@ const Roadmap = () => {
   const modules = [
     {
       title: "Модуль 1: Основы Python",
-      icon: Code2,
+      icon: Code,
       gradient: {
         bg: "bg-gradient-to-r from-red-500 to-red-600",
         text: "text-red-500",
@@ -168,35 +133,11 @@ const Roadmap = () => {
         borderLight: "border-red-200"
       },
       topics: [
-        {
-          name: "Базовый Python синтаксис",
-          resources: [
-            { title: "Базовый Python в тексте Hexlet*", url: "https://ru.hexlet.io/courses/python-basics" },
-            { title: "Добрый python, Selfedu, видео курс", url: "https://www.youtube.com/playlist?list=PLA0M1Bcd0w8yWHh2V70bTtbVxJICrnJHd" },
-            { title: "Python for begginers, видео курс", url: "https://www.youtube.com/playlist?list=PLQAt0m1f9OHvv2wxPGSCWjgy1qER_FvB6" }
-          ]
-        },
-        {
-          name: "Виртуальные окружения + pip",
-          resources: [
-            { title: "Python: Настройка окружения, Hexlet*", url: "https://ru.hexlet.io/courses/python-setup-environment" },
-          ]
-        },
-        {
-          name: "Git основы",
-          resources: [
-            { title: "Введение в Git, Hexlet*", url: "https://ru.hexlet.io/courses/intro_to_git" },
-
-          ]
-        },
-        {
-          name: "Базовое тестирование (pytest)",
-          description: "Базовые assert тесты, организация файлов, фикстуры, параметризация, маркеры, тестирование исключений, моки и патчи",
-          resources: [
-            { title: "Pytest, видео курс, Артём Шумейко", url: "https://www.youtube.com/watch?v=rAKIK5_UMzw&list=PLeLN0qH0-mCVdHgdjlnKTl4jKuJgCK-4b" },
-            { title: "Pytest тестирование, видео курс, Luchanos", url: "https://semaphoreci.com/community/tutorials/testing-python-applications-with-pytest" }
-          ]
-        }
+        "Базовый Python синтаксис",
+        "Виртуальные окружения + pip",
+        "Git основы",
+        "Базовое тестирование (pytest)",
+        "Решение задач с отправкой в Git"
       ],
       completion: [
         "Мини-собеседование по базе",
@@ -213,30 +154,10 @@ const Roadmap = () => {
         borderLight: "border-red-300"
       },
       topics: [
-        {
-          name: "Структуры данных и алгоритмы",
-          description: "Этого будет достаточно",
-          resources: [
-            { title: "Python Data Structures, видео курс, egoroff_channel", url: "https://www.youtube.com/watch?v=WBaL7ANQbzQ&list=PLQAt0m1f9OHsaqspc3ncC-WsuYyuRf2-f" },
-
-          ]
-        },
-        {
-          name: "ООП + SOLID",
-          resources: [
-            { title: "ООП, видео курс, selfedu", url: "https://www.youtube.com/watch?v=Z7AY41tE-3U&list=PLA0M1Bcd0w8zPwP7t-FgwONhZOHt9rz9E" },
-            { title: "ООП, видео курс, egoroff_channel", url: "https://www.youtube.com/watch?v=Z7AY41tE-3U&list=PLA0M1Bcd0w8zPwP7t-FgwONhZOHt9rz9E" },
-            { title: "Все о принципах SOLID", url: "https://www.youtube.com/watch?v=yeYRAXsUrow" }
-          ]
-        },
-        {
-          name: "Базовые паттерны проектирования",
-          description: "Надо знать: Синглтон, Фабричный метод, Строитель, Адаптер, Декоратор, Стратегия, Repository Pattern, Service Layer, Unit of Work",
-          resources: [
-            { title: "Python Design Patterns", url: "https://refactoring.guru/design-patterns/python" },
-            { title: "Python Patterns Guide", url: "https://python-patterns.guide/" }
-          ]
-        }
+        "Структуры данных и алгоритмы",
+        "ООП + SOLID",
+        "Базовые паттерны проектирования",
+        "Задачи в Git"
       ],
       completion: [
         "Мини-собеседование (база + ООП)",
@@ -253,28 +174,11 @@ const Roadmap = () => {
         borderLight: "border-red-400"
       },
       topics: [
-        {
-          name: "Django + DRF",
-          resources: [
-            { title: "Django Documentation", url: "https://docs.djangoproject.com/" },
-            { title: "Django REST Framework", url: "https://www.django-rest-framework.org/" },
-            { title: "Django for Beginners Book", url: "https://djangoforbeginners.com/" }
-          ]
-        },
-        {
-          name: "JWT + Swagger",
-          resources: [
-            { title: "Django REST Framework JWT", url: "https://django-rest-framework-simplejwt.readthedocs.io/" },
-            { title: "DRF Swagger/OpenAPI", url: "https://drf-yasg.readthedocs.io/en/stable/" }
-          ]
-        },
-        {
-          name: "PostgreSQL",
-          resources: [
-            { title: "PostgreSQL Tutorial", url: "https://www.postgresqltutorial.com/" },
-            { title: "Django Database Documentation", url: "https://docs.djangoproject.com/en/stable/topics/db/" }
-          ]
-        }
+        "Django + DRF",
+        "JWT + Swagger",
+        "Параллельно SQL (PostgreSQL)",
+        "Базовый Docker",
+        "Проект на Django"
       ],
       completion: [
         "Мини-собеседование (база + ООП + Django + SQL)",
@@ -291,27 +195,12 @@ const Roadmap = () => {
         borderLight: "border-red-500"
       },
       topics: [
-        {
-          name: "FastAPI",
-          resources: [
-            { title: "FastAPI Documentation", url: "https://fastapi.tiangolo.com/" },
-            { title: "FastAPI Tutorial", url: "https://fastapi.tiangolo.com/tutorial/" }
-          ]
-        },
-        {
-          name: "Асинхронность",
-          resources: [
-            { title: "AsyncIO Documentation", url: "https://docs.python.org/3/library/asyncio.html" },
-            { title: "Python Async Features", url: "https://realpython.com/async-io-python/" }
-          ]
-        },
-        {
-          name: "SQLAlchemy",
-          resources: [
-            { title: "SQLAlchemy Documentation", url: "https://docs.sqlalchemy.org/" },
-            { title: "SQLAlchemy Tutorial", url: "https://docs.sqlalchemy.org/en/14/tutorial/" }
-          ]
-        }
+        "FastAPI",
+        "Асинхронность",
+        "Pydantic",
+        "SQLAlchemy",
+        "Проект на FastAPI",
+        "Параллельно углубленное изучение БД"
       ],
       completion: [
         "Мини-собеседование (база + ООП + Django + FastAPI + SQL)",
@@ -328,27 +217,10 @@ const Roadmap = () => {
         borderLight: "border-red-600"
       },
       topics: [
-        {
-          name: "Redis + Kafka",
-          resources: [
-            { title: "Redis Python Client", url: "https://redis-py.readthedocs.io/" },
-            { title: "Apache Kafka Documentation", url: "https://kafka.apache.org/documentation/" }
-          ]
-        },
-        {
-          name: "CI/CD основы",
-          resources: [
-            { title: "GitHub Actions Documentation", url: "https://docs.github.com/en/actions" },
-            { title: "GitLab CI Documentation", url: "https://docs.gitlab.com/ee/ci/" }
-          ]
-        },
-        {
-          name: "Архитектурные паттерны",
-          resources: [
-            { title: "Python Application Architectures", url: "https://www.cosmicpython.com/" },
-            { title: "Clean Architecture with Python", url: "https://www.pythoncleanarchitecture.com/" }
-          ]
-        }
+        "Redis + Kafka",
+        "CI/CD основы",
+        "Архитектурные паттерны",
+        "Финальный проект (FastAPI + Redis + Kafka + Docker)"
       ],
       completion: [
         "Итоговое собеседование",
