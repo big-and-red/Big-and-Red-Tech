@@ -191,7 +191,7 @@ const Roadmap = () => {
         },
         {
           name: "Базовое тестирование (pytest)",
-          description: "Базовые assert тесты, организация файлов, фикстуры, параметризация, маркеры, тестирование исключений, моки и патчи",
+          description: "Надо знать: Базовые assert тесты, организация файлов, фикстуры, параметризация, маркеры, тестирование исключений, моки и патчи",
           resources: [
             { title: "Pytest, видео курс, Артём Шумейко", url: "https://www.youtube.com/watch?v=rAKIK5_UMzw&list=PLeLN0qH0-mCVdHgdjlnKTl4jKuJgCK-4b" },
             { title: "Pytest тестирование, видео курс, Luchanos", url: "https://semaphoreci.com/community/tutorials/testing-python-applications-with-pytest" }
@@ -233,8 +233,7 @@ const Roadmap = () => {
           name: "Базовые паттерны проектирования",
           description: "Надо знать: Синглтон, Фабричный метод, Строитель, Адаптер, Декоратор, Стратегия, Repository Pattern, Service Layer, Unit of Work",
           resources: [
-            { title: "Python Design Patterns", url: "https://refactoring.guru/design-patterns/python" },
-            { title: "Python Patterns Guide", url: "https://python-patterns.guide/" }
+            { title: "Python Design Patterns", url: "https://refactoring.guru/ru/design-patterns/python" },
           ]
         }
       ],
