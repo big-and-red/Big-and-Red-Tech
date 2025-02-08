@@ -1,11 +1,11 @@
-import Roadmap from './components/Roadmap'
+import TechPortal from "./pages/TechPortalPage";
 
 function App() {
   return (
     <div>
-      <Roadmap />
+      <TechPortal />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
