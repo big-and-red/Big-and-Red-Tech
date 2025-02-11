@@ -78,16 +78,24 @@ const ModuleCard = ({ title, topics, completion, icon: Icon, gradient }) => {
                     </div>
                     <div className="ml-5 space-y-2">
                       {topic.resources?.map((resource, rIndex) => (
-                        <motion.a
-                          key={rIndex}
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center text-sm hover:text-red-600 transition-colors duration-200 pl-4"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          <span>{resource.title}</span>
-                        </motion.a>
+                        <div key={rIndex} className="pl-4">
+                          <div className="flex flex-col space-y-1">
+                            {resource.description && (
+                              <p className="text-sm text-gray-500">
+                                {resource.description}
+                              </p>
+                            )}
+                            <motion.a
+                              href={resource.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center text-sm hover:text-red-600 transition-colors duration-200"
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              <span>{resource.title}</span>
+                            </motion.a>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </motion.li>

@@ -13,16 +13,22 @@ export const modules = [
     topics: [
       {
         name: "Базовый Python синтаксис",
+        description: "Некоторые уроки могут повторться в материалах, можно закрепить, можно пропустить.",
         resources: [
           {
+            description: "Проходим полностью.",
             title: "Базовый Python в тексте Hexlet*",
             url: "https://ru.hexlet.io/courses/python-basics",
           },
+          
           {
+            description: "Надо знать: 7-25, 27, 29-34, 39-62, 65-72.",
             title: "Добрый python, Selfedu, видео курс",
             url: "https://www.youtube.com/playlist?list=PLA0M1Bcd0w8yWHh2V70bTtbVxJICrnJHd",
+            
           },
           {
+            description: "Надо знать: 7, 9-25, 28, 29, 31-56, и все уроки без нумерации.",
             title: "Python for begginers, видео курс",
             url: "https://www.youtube.com/playlist?list=PLQAt0m1f9OHvv2wxPGSCWjgy1qER_FvB6",
           },
@@ -31,7 +37,7 @@ export const modules = [
       {
         name: "Виртуальные окружения + pip",
         description:
-          "Надо знать: как и зачем нужны виртуальные окружения, файл зависимостей",
+          "Надо знать: Зачем нужны виртуальные окружения, что такое файл зависимостей.",
         resources: [
           {
             title: "Виртуальное Окружение Python | venv и virtualenv*",
@@ -45,8 +51,17 @@ export const modules = [
       },
       {
         name: "Git основы",
-        description: "Надо знать: ",
+        description: "Надо знать: init, clone, add, commit, push, pull, status, log, diff, branch, checkout, merge, rebase, cherry-pick, reset, revert.",
         resources: [
+          {
+            title: "Git и GitHub для новичков",
+            url: "https://www.youtube.com/watch?v=EeARyFrZsnU",
+          },
+          {
+            description: "Этим пользуются в компаниях.",
+            title: "Что такое GitLab?",
+            url: "https://www.youtube.com/watch?v=RIjg6XsRJNQ",
+          },
           {
             title: "Введение в Git, Hexlet*",
             url: "https://ru.hexlet.io/courses/intro_to_git",
@@ -58,7 +73,7 @@ export const modules = [
         ],
       },
     ],
-    completion: ["Мини-собеседование по базе", "Практическое задание"],
+    completion: ["Мини-собеседование по базе", "Практическое задание", "Лайвкодинг"],
   },
   {
     title: "Модуль 2: ООП и структуры данных",
@@ -126,7 +141,7 @@ export const modules = [
         ],
       },
     ],
-    completion: ["Мини-собеседование (база + ООП)", "Практическое задание"],
+    completion: ["Мини-собеседование (база + ООП)", "Практическое задание", "Лайвкодинг"],
   },
   {
     title: "Модуль 3: Web Backend",
