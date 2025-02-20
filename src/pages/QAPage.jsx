@@ -1,12 +1,13 @@
 import React from "react";
-
 import QAModuleCard from "../components/QAModuleCard";
-import { qaModules } from "../constants/modules/qa_modules";
+import { qaModules, middleQaModules } from "../constants/modules";
 
-const QAPage = () => {
+const QAPage = ({ activeLevel }) => {
+  const currentModules = activeLevel === 'junior' ? qaModules : middleQaModules;
+
   return (
     <div className="space-y-6">
-      {qaModules.map((module, index) => (
+      {currentModules.map((module, index) => (
         <QAModuleCard key={index} {...module} />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { qaModules } from "./qa_modules";
-import { modules } from "./modules";
-
-export { qaModules, modules };
+export { modules } from './modules';
+export { qaModules } from './qa_modules';
+export { middleModules } from './middle_modules';
+export { middleQaModules } from './middle_qa_modules';

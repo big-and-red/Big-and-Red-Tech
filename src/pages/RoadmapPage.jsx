@@ -1,9 +1,8 @@
 import React from "react";
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
-
 import ModuleCard from "../components/ModuleCard";
-import { modules } from "../constants/modules/modules";
+import { modules, middleModules } from "../constants/modules";
 
 const stages = [
   "Code review",
@@ -11,11 +10,14 @@ const stages = [
   "Практика решения задач",
   "Ведение портфолио на GitHub",
 ];
-const RoadmapPage = () => {
+
+const RoadmapPage = ({ activeLevel }) => {
+  const currentModules = activeLevel === 'junior' ? modules : middleModules;
+
   return (
     <>
       <div className="space-y-6">
-        {modules.map((module, index) => (
+        {currentModules.map((module, index) => (
           <ModuleCard key={index} {...module} />
         ))}
       </div>
