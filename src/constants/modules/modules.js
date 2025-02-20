@@ -54,6 +54,10 @@ export const modules = [
         description: "Надо знать: init, clone, add, commit, push, pull, status, log, diff, branch, checkout, merge, rebase, cherry-pick, reset, revert.",
         resources: [
           {
+            title: "Введение в Git, Hexlet*",
+            url: "https://ru.hexlet.io/courses/intro_to_git",
+          },
+          {
             title: "Git и GitHub для новичков",
             url: "https://www.youtube.com/watch?v=EeARyFrZsnU",
           },
@@ -63,17 +67,13 @@ export const modules = [
             url: "https://www.youtube.com/watch?v=RIjg6XsRJNQ",
           },
           {
-            title: "Введение в Git, Hexlet*",
-            url: "https://ru.hexlet.io/courses/intro_to_git",
-          },
-          {
             title: "Тренажер по Git",
             url: "https://learngitbranching.js.org/?locale=ru_RU",
           },
         ],
       },
     ],
-    completion: ["Мини-собеседование по базе", "Практическое задание", "Лайвкодинг"],
+    completion: ["Практическое задание", "Мини-собеседование по базе", "Лайвкодинг"],
   },
   {
     title: "Модуль 2: ООП и структуры данных",
@@ -85,18 +85,19 @@ export const modules = [
       borderLight: "border-red-300",
     },
     topics: [
-      {
-        name: "Структуры данных и алгоритмы",
-        description: "Этого будет достаточно",
-        resources: [
-          {
-            title: "Python Data Structures, видео курс, egoroff_channel",
-            url: "https://www.youtube.com/watch?v=WBaL7ANQbzQ&list=PLQAt0m1f9OHsaqspc3ncC-WsuYyuRf2-f",
-          },
-        ],
-      },
+      // {
+      //   name: "Структуры данных и алгоритмы",
+      //   description: "Этого будет достаточно",
+      //   resources: [
+      //     {
+      //       title: "Python Data Structures, видео курс, egoroff_channel",
+      //       url: "https://www.youtube.com/watch?v=WBaL7ANQbzQ&list=PLQAt0m1f9OHsaqspc3ncC-WsuYyuRf2-f",
+      //     },
+      //   ],
+      // },
       {
         name: "ООП + SOLID",
+        description: "Надо знать: Классы и объекты, наследование, инкапсуляция (_protected, __private), полиморфизм, магические методы (init, str и др.), декораторы (@property, @staticmethod, @classmethod), методы класса, абстрактные классы, множественное наследование, композиция и агрегация, принципы SOLID, основные паттерны проектирования.",
         resources: [
           {
             title: "ООП, видео курс, selfedu",
@@ -116,7 +117,7 @@ export const modules = [
       {
         name: "Базовое тестирование (pytest)",
         description:
-          "Надо знать: Базовые assert тесты, организация файлов, фикстуры, параметризация, маркеры, тестирование исключений, моки и патчи",
+          "Надо знать: Базовые assert тесты, организация файлов, фикстуры, параметризация, маркеры, тестирование исключений, моки и патчи.",
         resources: [
           {
             title: "Pytest, видео курс, Артём Шумейко",
@@ -130,18 +131,69 @@ export const modules = [
       },
 
       {
-        name: "Базовые паттерны проектирования",
-        description:
-          "Надо знать: Синглтон, Фабричный метод, Строитель, Адаптер, Декоратор, Стратегия, Repository Pattern, Service Layer, Unit of Work",
+        name: "Асинхронный python",
         resources: [
           {
-            title: "Python Design Patterns",
-            url: "https://refactoring.guru/ru/design-patterns/python",
+            title: "Асинхронность в Python",
+            description: "Смотрим полностью.",
+            url: "https://www.youtube.com/playlist?list=PLlWXhlUMyooawilqK4lPXRvxtbYiw34S8",
           },
         ],
       },
+
+      {
+        name: "Потоки и процессы в python",
+       
+        resources: [
+          {
+            title: "Потоки & процессы",
+            description: "Смотрим полностью.",
+            url: "https://www.youtube.com/playlist?list=PL6plRXMq5RAAb9gwGqmgAoA-KIr-7CMuz",
+          },
+
+          {
+            title: "Потоки & процессы & Async & Gil",
+            description: "Смотрим полностью.",
+            url: "https://www.youtube.com/playlist?list=PL6plRXMq5RAAb9gwGqmgAoA-KIr-7CMuz",
+          },
+          
+        ],
+      },
+
+      {
+        name: "Консоль",
+        resources: [
+          {
+            title: "Основы командной строки",
+            description: "Проходим полностью.",
+            url: "https://ru.hexlet.io/courses/cli-basics",
+          },
+          {
+            title: "ООП, видео курс, egoroff_channel",
+            url: "https://www.youtube.com/watch?v=Z7AY41tE-3U&list=PLA0M1Bcd0w8zPwP7t-FgwONhZOHt9rz9E",
+          },
+          {
+            title: "Все о принципах SOLID",
+            url: "https://www.youtube.com/watch?v=yeYRAXsUrow",
+          },
+        ],
+      },
+
+
+
+      // {
+      //   name: "Базовые паттерны проектирования",
+      //   description:
+      //     "Надо знать: Синглтон, Фабричный метод, Строитель, Адаптер, Декоратор, Стратегия, Repository Pattern, Service Layer, Unit of Work",
+      //   resources: [
+      //     {
+      //       title: "Python Design Patterns",
+      //       url: "https://refactoring.guru/ru/design-patterns/python",
+      //     },
+      //   ],
+      // },
     ],
-    completion: ["Мини-собеседование (база + ООП)", "Практическое задание", "Лайвкодинг"],
+    completion: ["Практическое задание", "Мини-собеседование (база + ООП)", "Лайвкодинг"],
   },
   {
     title: "Модуль 3: Web Backend",
@@ -198,8 +250,8 @@ export const modules = [
       },
     ],
     completion: [
-      "Мини-собеседование (база + ООП + Django + SQL)",
       "Практическое задание",
+      "Мини-собеседование (база + ООП + Django + SQL)",
     ],
   },
   {
@@ -253,8 +305,8 @@ export const modules = [
       },
     ],
     completion: [
-      "Мини-собеседование (база + ООП + Django + FastAPI + SQL)",
       "Практическое задание",
+      "Мини-собеседование (база + ООП + Django + FastAPI + SQL)",
     ],
   },
   {
@@ -308,8 +360,7 @@ export const modules = [
       },
     ],
     completion: [
-      "Итоговое собеседование",
-      "Публикация всех проектов на GitHub",
+      "Итоговое собеседование по всем темам",
     ],
   },
 ];
