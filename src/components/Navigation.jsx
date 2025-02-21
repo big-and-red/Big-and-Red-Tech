@@ -35,6 +35,21 @@ const Navigation = ({ activePage, setActivePage }) => {
             </div>
           </button>
         </li>
+        <li>
+          <button
+            onClick={() => setActivePage("about")}
+            className={`pb-2 px-4 ${
+              activePage === "about"
+                ? "border-b-2 border-red-500 text-red-500 font-medium"
+                : "text-gray-500 hover:text-red-500"
+            }`}
+          >
+            <div className="flex items-center space-x-2">
+              <MessageSquare className="w-4 h-4" />
+              <span>About</span>
+            </div>
+          </button>
+        </li>
       </ul>
     </nav>
   );

@@ -73,14 +73,15 @@ const TechPortalPage = () => {
       </motion.div>
 
       {activePage !== "about" && (
-        <LevelSwitch activeLevel={activeLevel} setActiveLevel={setActiveLevel} />
+        <LevelSwitch
+          activeLevel={activeLevel}
+          setActiveLevel={setActiveLevel}
+        />
       )}
 
       <Navigation activePage={activePage} setActivePage={setActivePage} />
 
-      <AnimatePresence mode="wait">
-        {renderContent()}
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{renderContent()}</AnimatePresence>
     </div>
   );
 };
